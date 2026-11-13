@@ -1,0 +1,22 @@
+# Configuration for the Quorum simulation runs.
+parameters:
+  - name: rounds
+    type: int
+    default: 200
+    description: Number of federation rounds to simulate.
+  - name: client_weights
+    type: List[float]
+    default: null
+    description: Optional per-client weights overriding the bandwidth schedule.
+  - name: aggregator
+    type: Callable[[float], float]
+    default: null
+    description: Optional callable used to rescale incoming updates.
+  - name: participating_clients
+    type: set
+    default: []
+    description: Explicit client ids to include in each round.
+  - name: optimizer_args
+    type: Dict
+    default: {"lr": 0.01}
+    description: Keyword arguments forwarded to the local optimiser.
